@@ -22,14 +22,14 @@ public class SignUpController {
 
     @GetMapping()
     public String signupView() {
-        return "signup.html";
+        return "signup";
     }
 
     @PostMapping()
     public String signupUser(@ModelAttribute User user, Model model) {
         String signupError = null;
 
-        if (userService.isUserNameAvailable(user.getUsername())) {
+        if (!userService.isUserNameAvailable(user.getUsername())) {
             signupError = "This username already exist.";
         }
 
