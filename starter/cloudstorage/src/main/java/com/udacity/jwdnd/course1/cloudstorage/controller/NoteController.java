@@ -29,13 +29,13 @@ public class NoteController {
         return "home";
     }
 
-    @GetMapping("edit/{id}")
+    @GetMapping("edit/{noteId}")
     public String editNote(@PathParam("noteId") Integer noteId, Model model) {
         model.addAttribute("noteForm", noteService.getNote(noteId));
         return "edit-note";
     }
 
-    @DeleteMapping("/note/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteNote(@PathVariable("id") Integer id, Authentication auth, Model model) {
         noteService.deleteNote(id);
     }
