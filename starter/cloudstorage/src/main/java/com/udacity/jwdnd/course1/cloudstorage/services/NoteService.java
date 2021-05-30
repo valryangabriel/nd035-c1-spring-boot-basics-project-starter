@@ -37,6 +37,10 @@ public class NoteService {
         return noteMapper.getNotes(user.getUserId());
     }
 
+    public NoteForm getNote(Integer id) {
+        return noteMapper.getNote(id);
+    }
+
     public String getUserName() {
         return this.auth.getPrincipal().toString();
     }
